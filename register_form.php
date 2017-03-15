@@ -35,7 +35,7 @@
 
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script>
-$('submit').on('click',function(event){
+$('#submit').on('click',function(event){
     var valid = true;
     errorMessage = "";
 
