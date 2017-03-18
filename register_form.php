@@ -116,13 +116,10 @@ $('#submit').on('click',function(event){
     if ($('#email').val() == '') {
         errorMessage += "โปรดป้อน email\n";
         valid = false;
-    }
-
-    if(valid && ($('#email').val().length > 0) && !$('#email').val().match(/^[\w][\w\-\.]*\@[\w][\w\-]*(\.[\w][\w\-]*)+([\s,]+[\w][\w\-\.]*\@[\w][\w\-]*(\.[\w][\w\-]*)+)?$/))
-    {
-        errorMessage += "โปรดป้อน email ให้ถูกต้อง\n";
-        valid = false;
-    }
+    }else if (!(($('#email').val().indexOf(".") > 0) && ($('#email').val().indexOf("@") > 0)) || /[^a-zA-Z0-9.@_-]/.test($('#email').val())) {
+	    errorMessage+="โปรดป้อน email ให้ถูกต้อง\n";
+	    valid=false;
+	}
 
     if($('#sex1').prop("checked") == false && $('#sex2').prop("checked") == false){
 	    errorMessage += "โปรดเลือก เพศ \n";
